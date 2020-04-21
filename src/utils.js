@@ -31,7 +31,7 @@ function getValue(key, object) {
         currentValue = currentValue[currentPropLevel];
       }
 
-      hasValue = hasValue && !sNullOrUndefined(currentValue);
+      hasValue = hasValue && !isNullOrUndefined(currentValue);
       if (!hasValue) break;
     }
   } else {
