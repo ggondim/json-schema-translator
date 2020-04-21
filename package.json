@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "An implementation of schema translation/migration definition for JavaScript.",
   "main": "index.js",
-  "files": ["./src/**", "./index.js"],
+  "files": ["./src/**/*"],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
