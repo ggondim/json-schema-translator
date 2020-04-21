@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "https://rawcdn.githack.com/NOALVO/json-schema-translator/94dbc0e734d645126e0c117f9b24913fd293cdef/translation.schema.json",
+  "$id": "https://rawcdn.githack.com/NOALVO/json-schema-translator/f115d19e5e9b2506551884abd1edfb21c070af6d/translation.schema.json",
   "title": "json-schema-translator",
   "definitions": {
     "translationOptions": {
