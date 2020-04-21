@@ -1,0 +1,78 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "https://rawcdn.githack.com/NOALVO/json-schema-translator/94dbc0e734d645126e0c117f9b24913fd293cdef/translation.schema.json",
+  "title": "json-schema-translator",
+  "definitions": {
+    "translationOptions": {
+      "type": "object",
+      "properties": {
+        "arrayBehavior": {
+          "type": "string",
+          "enum": ["JOIN", "LITERAL"],
+          "default": "JOIN"
+        },
+        "arraySeparator": {
+          "type": "string",
+          "default": ","
+        },
+        "objectBehavior": {
+          "type": "string",
+          "enum": ["STRINGIFY", "LITERAL"],
+          "default": "STRINGIFY"
+        },
+        "excludeNulls": {
+          "type": "boolean",
+          "default": true
+        }
+      }
+    },
+    "propertyWithTranslation": {
+      "type": "object",
+      "properties": {
+        "translation": {
+          "type": "object",
+          "properties": {
+            "from": {
+              "type":"string"
+            }
+          },
+          "additionalProperties": {
+            "conversion": {
+              "type": "object",
+              "properties": {
+                "provider": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": true
+            },
+            "options": {
+              "$ref": "#/defintions/translationOptions"
+            }
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "properties": {
+      "type": "object",
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "$ref": "http://json-schema.org/draft-07/schema#"
+          },
+          {
+            "$ref": "#/definitions/propertyWithTranslation"
+          }
+        ]
+       },
+      "default": {}
+    }
+  },
+  "additionalProperties": {
+    "translationOptions": {
+      "$ref": "#/definitions/translationOptions"
+    }
+  }
+}
