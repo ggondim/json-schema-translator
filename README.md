@@ -175,6 +175,8 @@ When using custom community providers, you need to specify the optional `provide
 translateObject(targetSchema: object, sourceObject: object, providers: object?)
 ```
 
+> ℹ You can find community providers in the [/providers](./providers) folder. If you want to write a custom provider and make it avaiable for the community, refer to the [Creating custom providers section](#Creating-custom-providers).
+
 #
 
 ## JSON Schema Translator reference
