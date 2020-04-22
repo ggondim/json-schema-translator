@@ -20,6 +20,7 @@ class AirtableLinkProvider {
   }
 
   /**
+   * 
    * Convert a property value to an Airtable Link reference to a record using the property's own value or other object properties injected to an Airtable find formula.
    *
    * @param {*} {sourceKey, sourceObject, currentValue, translation, targetSchema, _utils } options
