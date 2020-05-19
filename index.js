@@ -1,8 +1,8 @@
 const dot = require('dot-object');
 const deepmerge = require('deepmerge');
 
-const DEFAULT_PROVIDERS = require('./providers/default-pipeline');
-const TypeCast = require('./providers/TypeCastProvider');
+const DEFAULT_PROVIDERS = require('./src/default-pipeline');
+const TypeCast = require('./src/TypeCastProvider');
 
 module.exports = {
   translateObject,

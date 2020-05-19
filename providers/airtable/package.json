@@ -1,6 +1,6 @@
 {
   "name": "@json-schema-translator/airtable",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "An Airtable provider for json-schema-translator",
   "main": "index.js",
   "scripts": {
