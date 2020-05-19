@@ -62,9 +62,38 @@ class StringCleanProvider {
     }, currentValue);
   }
 }
+class StringSplitProvider {
+  constructor() {
+    this.name = 'StringSplit';
+    this.collection = 'String';
+  }
+
+  shouldRun({
+    currentValue,
+    targetPropertySchema,
+    sourceKey,
+    sourceObject,
+    targetSchema,
+    providers,
+    options,
+  }) {
+    return currentValue && options.split;
+  }
+
+  async getValue(currentValue, targetPropertySchema, {
+    sourceKey,
+    sourceObject,
+    targetSchema,
+    providers,
+    options,
+  }) {
+    return currentValue.split(options.split);
+  }
+}
 
 module.exports = [
   new StringReplaceProvider(),
   new StringCleanProvider(),
+  new StringSplitProvider()
 ];
 

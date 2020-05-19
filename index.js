@@ -14,7 +14,9 @@ module.exports = {
  * @param {object} propertySchema JSON Schema
  */
 function _isTransleatable(propertySchema) {
-  return propertySchema.from || (propertySchema.translation && propertySchema.translation.from);
+  return propertySchema.from 
+    || (propertySchema.translation && propertySchema.translation.from)
+    || propertySchema.default;
 }
 
 /**
