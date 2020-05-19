@@ -28,3 +28,7 @@ class ArrayIndexProvider {
     return currentValue[options.arrayIndex];
   }
 }
+
+module.exports = [
+  new ArrayIndexProvider(),
+];
