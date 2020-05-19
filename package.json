@@ -1,6 +1,6 @@
 {
   "name": "json-schema-translator",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "An implementation of schema translation/migration definition for JavaScript.",
   "main": "index.js",
   "files": [
