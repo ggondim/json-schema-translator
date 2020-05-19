@@ -26,5 +26,9 @@
   "bugs": {
     "url": "https://github.com/NOALVO/json-schema-translator/issues"
   },
-  "homepage": "https://github.com/NOALVO/json-schema-translator#readme"
+  "homepage": "https://github.com/NOALVO/json-schema-translator#readme",
+  "dependencies": {
+    "deepmerge": "^4.2.2",
+    "dot-object": "^2.1.3"
+  }
 }

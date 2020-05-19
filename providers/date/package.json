@@ -1,17 +1,14 @@
 {
-  "name": "@json-schema-translator/airtable",
-  "version": "2.0.3",
-  "description": "An Airtable provider for json-schema-translator",
+  "name": "@json-schema-translator/date",
+  "version": "1.0.0",
+  "description": "json-schema-translator provider for date and time",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/NOALVO/json-schema-translator.git"
   },
   "keywords": [
-    "airtable",
+    "currency",
     "json-schema",
     "json"
   ],
@@ -22,7 +19,6 @@
   },
   "homepage": "https://github.com/NOALVO/json-schema-translator#readme",
   "dependencies": {
-    "airtable": "^0.8.1",
-    "airtable-to-json-schema": "^0.1.0"
+    "date-fns": "^2.13.0"
   }
 }
