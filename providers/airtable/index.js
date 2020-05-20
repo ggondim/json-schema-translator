@@ -82,11 +82,7 @@ class AirtableLinkProvider {
     providers,
     methodOptions,
   }) {
-    const newOptions = methodOptions || {};
-    newOptions.providers = providers;
-    newOptions.schemas = schemas;
-
-    const translated = await JST.translateObject(sourceObject, schema, newOptions);
+    const translated = await JST.translateObject(sourceObject, schema, methodOptions);
     const fields = objectToAirtableFields(translated, schema);
 
     let record;

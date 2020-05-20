@@ -13,10 +13,14 @@ class TypeCastProvider {
     providers,
     options,
   }) {
-    return (typeof currentValue === 'object' &&
-        Array.isArray(currentValue) &&
-        targetPropertySchema.type !== 'array'
-      ) || typeof currentValue !== targetPropertySchema.type;
+    return (
+      typeof currentValue === 'object' &&
+      Array.isArray(currentValue) &&
+      targetPropertySchema.type !== 'array'
+    ) || (
+      typeof currentValue !== 'object' &&
+      typeof currentValue !== targetPropertySchema.type
+    );
   }
 
   async getValue(currentValue, targetPropertySchema, {
@@ -27,6 +31,8 @@ class TypeCastProvider {
     targetKey,
     options,
   }) {
+    if (!this.shouldRun({ currentValue, targetPropertySchema })) return currentValue;
+    
     let value = currentValue;
 
     switch(targetPropertySchema.type) {

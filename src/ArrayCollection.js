@@ -14,8 +14,7 @@ class ArrayIndexProvider {
     options,
   }) {
     return currentValue
-      && options.arrayIndex 
-      && Array.isArray(currentValue);
+      && typeof options.arrayIndex === 'number';
   }
 
   async getValue(currentValue, targetPropertySchema, {

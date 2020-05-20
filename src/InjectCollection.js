@@ -77,7 +77,8 @@ class CoalesceProvider {
     providers,
     options,
   }) {
-    return typeof sourceObject[sourceKey] === 'undefined'
+    const shouldValue = sourceObject[sourceKey];
+    return (typeof shouldValue === 'undefined' || shouldValue === '' || shouldValue === null)
       && options.coalesce;
   }
 
@@ -104,40 +105,8 @@ class CoalesceProvider {
   }
 }
 
-class DefaultProvider {
-  constructor() {
-    this.name = 'InjectDefault';
-    this.collection = 'Inject';
-    this.typecast = 'end';
-  }
-
-  shouldRun({
-    currentValue,
-    targetPropertySchema,
-    sourceKey,
-    sourceObject,
-    targetSchema,
-    providers,
-    options,
-  }) {
-    return typeof currentValue === 'undefined'
-      && targetPropertySchema.default;
-  }
-
-  async getValue(currentValue, targetPropertySchema, {
-    sourceKey,
-    sourceObject,
-    targetSchema,
-    providers,
-    options,
-  }) {
-    return targetPropertySchema.default;
-  }
-}
-
 module.exports = [
   new InjectRootProvider(),
   new InjectGlobalProvider(),
-  new CoalesceProvider(),
-  new DefaultProvider()
+  new CoalesceProvider()
 ];

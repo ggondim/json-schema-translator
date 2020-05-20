@@ -32,7 +32,6 @@ async function translateObject(sourceObject, targetSchema, options = {}) {
   let providers = DEFAULT_PROVIDERS;
   if (options.providers) {
     providers = [...DEFAULT_PROVIDERS, ...options.providers];
-    Reflect.deleteProperty(methodOptions, 'providers');
   }
 
   const schemas = options.schemas || [];
@@ -46,11 +45,19 @@ async function translateObject(sourceObject, targetSchema, options = {}) {
     const { translation } = targetPropertySchema;
 
     if (_isTransleatable(targetPropertySchema)) {
-      const sourceKey = targetPropertySchema.from || (translation && translation.from);
+      const sourceKey = targetPropertySchema.from || (translation && translation.from) || '';
       const propertyOptions = deepmerge(schemaOptions, targetPropertySchema.translation || {});
-      const currentValue = dot.pick(sourceKey, sourceObject) || undefined;
 
-      const value = await translateValue(currentValue, targetPropertySchema, {
+      let currentValue;
+      if (sourceKey !== '') {
+        currentValue = dot.pick(sourceKey, sourceObject) || undefined;
+      }
+
+      if (typeof currentValue === 'undefined' && targetPropertySchema.default) {
+        currentValue = targetPropertySchema.default;
+      }
+
+      let value = await translateValue(currentValue, targetPropertySchema, {
         schemas,
         methodOptions,
         sourceKey,
@@ -61,6 +68,10 @@ async function translateObject(sourceObject, targetSchema, options = {}) {
         options: propertyOptions,
         targetKey,
       });
+
+      if (typeof value === 'undefined' && targetPropertySchema.default) {
+        value = targetPropertySchema.default;
+      }
 
       newObjectResult[targetKey] = value;
     }
@@ -86,7 +97,7 @@ function _pipelineKeysToProviders(keys, providers) {
       }
       return steps;
     })
-    .reduce((a, b) => [...a, ...b], []);
+    .reduce((a, b) => [...a, ...(!b.length ? [b] : b) ], []);
 }
 
 /**
@@ -188,7 +199,7 @@ async function translateValue(currentValue, targetPropertySchema, {
     schemas,
     methodOptions,
   };
-  if (!sourceKey.startsWith('$$') && typeof currentValue === 'undefined') return;
+
 
   let value = currentValue;
 
@@ -207,6 +218,7 @@ async function translateValue(currentValue, targetPropertySchema, {
   }
 
   if (!typecastDisabled
+      && !typecastEnd
       && (typeof options.typecast === 'undefined'
         || _typecastStartOrBoth(options.typecast)
         || typecastStart)
