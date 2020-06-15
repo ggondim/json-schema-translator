@@ -1,0 +1,28 @@
+{
+  "name": "@json-schema-translator/airtable",
+  "version": "2.0.5",
+  "description": "An Airtable provider for json-schema-translator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ggondim/json-schema-translator.git"
+  },
+  "keywords": [
+    "airtable",
+    "json-schema",
+    "json"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ggondim/json-schema-translator/issues"
+  },
+  "homepage": "https://github.com/ggondim/json-schema-translator#readme",
+  "dependencies": {
+    "airtable": "^0.8.1",
+    "airtable-to-json-schema": "^0.1.0"
+  }
+}

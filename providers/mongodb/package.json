@@ -1,0 +1,28 @@
+{
+  "name": "@json-schema-translator/mongodb",
+  "version": "0.0.1",
+  "description": "A MongoDB provider for json-schema-translator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ggondim/json-schema-translator.git"
+  },
+  "keywords": [
+    "mongodb",
+    "json-schema",
+    "json"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ggondim/json-schema-translator/issues"
+  },
+  "homepage": "https://github.com/ggondim/json-schema-translator#readme",
+  "dependencies": {
+    "mongodb": "^3.5.8",
+    "mongodb-extjson": "^3.0.3"
+  }
+}

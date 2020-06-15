@@ -1,0 +1,24 @@
+{
+  "name": "@json-schema-translator/date",
+  "version": "1.0.0",
+  "description": "json-schema-translator provider for date and time",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ggondim/json-schema-translator.git"
+  },
+  "keywords": [
+    "currency",
+    "json-schema",
+    "json"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ggondim/json-schema-translator/issues"
+  },
+  "homepage": "https://github.com/ggondim/json-schema-translator#readme",
+  "dependencies": {
+    "date-fns": "^2.13.0"
+  }
+}
